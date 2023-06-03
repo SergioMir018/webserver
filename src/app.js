@@ -2,16 +2,15 @@ const express = require('express')
 const app = express()
 const port = 8080;
 
-app.get('/', (req, res) => {
-    res.send('Home page')
-});
+//Serve static content
+app.use(express.static('public'));
 
 app.get('/hello-world', (req, res) => {
-    res.send('Hello world')
+    res.send('Hello world in another route')
 });
 
 app.get('*', (req, res) => {
-    res.send('404 | Page not found')
+    res.sendFile(__dirname + '/public/404.html')
 });
 
 app.listen(port, () => {
