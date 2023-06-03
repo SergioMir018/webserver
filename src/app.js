@@ -19,11 +19,17 @@ app.get('/', (req, res) => {
 });
 
 app.get('/elements', (req, res) => {
-    res.sendFile(__dirname + '/public/elements.html');
+    res.render('elements', {
+        name: 'Sergio Mir',
+        title: 'Node Course'
+    });
 });
 
 app.get('/generic', (req, res) => {
-    res.sendFile(__dirname + '/public/generic.html');
+    res.render('generic', {
+        name: 'Sergio Mir',
+        title: 'Node Course'
+    });
 });
 
 app.get('*', (req, res) => {
